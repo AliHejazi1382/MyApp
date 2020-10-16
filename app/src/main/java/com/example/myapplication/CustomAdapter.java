@@ -56,7 +56,7 @@ public class CustomAdapter extends ArrayAdapter<Books> {
             imgPhoto.setImageResource(resId);
             lblTitle.setText(books.get(position).getTitle());
             lblCategory.setText(books.get(position).getaCategory());
-            lblPrice.setText(String.valueOf(books.get(position).getPrice()));
+            lblPrice.setText(String.valueOf(books.get(position).getPrice()) + "$");
         }
     }
 }
