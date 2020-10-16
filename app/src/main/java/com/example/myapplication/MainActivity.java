@@ -51,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         btnGManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                books = new BookXmlPullParser(MainActivity.this).parseXml();
+                refreshDisplay();
             }
         });
     }

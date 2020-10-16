@@ -11,10 +11,11 @@ public class BookXmlPullParser extends XmlPullParserV2<Books>{
     private List<Books> books;
     private Books currentBook;
     private String currentTag;
-    public BookXmlPullParser(Context context){
+    public BookXmlPullParser(Context context) {
         this.context = context;
-        this.books = new ArrayList<>();
+        books = new ArrayList<>();
     }
+
     @Override
     public InputStream getInput() {
         return context.getResources().openRawResource(R.raw.bookstore);
@@ -37,9 +38,9 @@ public class BookXmlPullParser extends XmlPullParserV2<Books>{
 
     @Override
     public void handleText(String text) {
-        if (currentBook == null || currentTag == null) return;
+        if (currentTag == null || currentBook == null) return;
         switch (currentTag){
-            case "tilte" :
+            case "title" :
                 currentBook.setTitle(text);
                 break;
             case "author" :
