@@ -40,14 +40,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnGManual.setOnClickListener(new View.OnClickListener() {
+        btnManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                books = new XmlJdomParser(MainActivity.this).parseXml();
+                refreshDisplay();
             }
         });
 
-        btnManual.setOnClickListener(new View.OnClickListener() {
+        btnGManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
