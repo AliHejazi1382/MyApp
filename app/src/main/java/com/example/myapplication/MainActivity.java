@@ -35,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         btnJdom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                books = new XmlJdomParser(MainActivity.this).parseXml();
+                refreshDisplay();
             }
         });
 
