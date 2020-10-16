@@ -16,7 +16,7 @@ public abstract class XmlGJDOMParser<T> {
 
     public abstract String getChildrenName();
 
-    public abstract T getObject();
+    public abstract T getObject(Element e);
 
     public List<T> parseXml() {
         List<T> t = new ArrayList<>();
@@ -26,7 +26,7 @@ public abstract class XmlGJDOMParser<T> {
             Element rootElement = document.getRootElement();
             List<Element> elements = rootElement.getChildren(getChildrenName());
             for (Element e : elements){
-                T item = getObject();
+                T item = getObject(e);
                 t.add(item);
             }
             getInput().close();
