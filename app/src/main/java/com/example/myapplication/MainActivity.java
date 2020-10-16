@@ -7,10 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btnGJdom, btnJdom, btnGManual, btnManual;
     private ListView listView;
+    private List<Books> books;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         btnGJdom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                books = new BookJdomParser(MainActivity.this).parseXml();
+                refreshDisplay();
             }
         });
 
@@ -48,5 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void refreshDisplay() {
+        CustomAdapter adapter = new CustomAdapter(this, books);
+        listView.setAdapter(adapter);
     }
 }
